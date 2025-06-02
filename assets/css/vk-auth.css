@@ -1,27 +1,57 @@
-.vk-auth-button {
-    display: inline-flex;
+.vk-auth-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 8px 16px;
+    margin: 10px 0;
+}
+
+.vk-auth-button-wrapper {
+    width: 100%;
+    max-width: 220px;
+}
+
+.vk-auth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
     background-color: #4C75A3;
-    color: #fff;
-    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
     border-radius: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     font-size: 14px;
-    line-height: 1.5;
-    transition: background-color 0.2s ease;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    min-height: 40px;
 }
 
 .vk-auth-button:hover {
     background-color: #3B5998;
-    color: #fff;
+    color: #FFFFFF;
     text-decoration: none;
+}
+
+.vk-auth-button:active {
+    background-color: #2A3F5F;
 }
 
 .vk-auth-button .vk-icon {
     margin-right: 8px;
     width: 20px;
     height: 20px;
+}
+
+.vk-auth-debug-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #6c757d;
 }
 
 /* Admin page styles */
@@ -45,4 +75,27 @@
     background: #f0f0f1;
     padding: 3px 5px;
     border-radius: 3px;
+}
+
+/* Loading state */
+.vk-auth-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.vk-auth-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: vk-auth-spin 1s linear infinite;
+}
+
+@keyframes vk-auth-spin {
+    to {
+        transform: rotate(360deg);
+    }
 } 
